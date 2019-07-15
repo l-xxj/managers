@@ -1,0 +1,34 @@
+<div class="container" id="box">
+       <div class="container" style="margin-top: 20px; margin-bottom: 30px;">
+        <h4>购保情况</h4>
+       </div>
+
+        <table class="table table-bordered table-hover">
+            <caption class="text-center">购保信息表</caption>
+            <tr class="text-danger">
+                <th class="text-center">序号</th>
+                <th class="text-center">姓名</th>
+                <th class="text-center">工号</th>
+                <th class="text-center">购保时间</th>
+                <th class="text-center">停保时间</th>
+                <th class="text-center">个人电脑号</th>
+
+            </tr>
+            {foreach name="insurance" item="vo"}
+            <tr class="text-center">
+                <td>{$vo.id}</td> 
+                <td>{$vo.name}</td>
+                <td>{$vo.num}</td>
+                <td>{$vo.buy}</td> 
+                <td>{$vo.stop}</td>
+                <td>{$vo.cnum}</td>
+   
+            </tr>
+            {/foreach}
+            <tr>
+
+        </tr>
+
+
+        </table>
+     </div>

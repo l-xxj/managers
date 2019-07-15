@@ -1,0 +1,96 @@
+
+            <div class="modal fade" id="Add">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+
+                        <!--模拟框头部-->
+                        <div class="modal-header">
+                            <h4 class="modal-title">添加生育信息</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!--模拟框主体-->
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label>姓名:</label>
+                                    <input type="text" class="form-control" id="name" placeholder="请输入姓名">
+                                </div>
+                                <div class="form-group">
+                                    <label">工号:</label>
+                                    <input type="text" class="form-control" id="num" placeholder="请输入工号">
+                                </div>
+                                <div class="form-group">
+                                    <label">头胎/二胎:</label>
+                                    <input type="text" class="form-control" id="baby" placeholder="请输入头胎/二胎">
+                                </div>
+                                 <div class="form-group">
+                                    <label">产检医院:</label>
+                                    <input type="text" class="form-control" id="chopital" placeholder="请输入产检医院名称">
+                                </div>
+                                 <div class="form-group">
+                                    <label">分娩医院:</label>
+                                    <input type="text" class="form-control" id="fhospital" placeholder="请输入分娩医院名称">
+                                </div>
+                                <div class="form-group">
+                                    <label">计生证号码:</label>
+                                    <input type="text" class="form-control" id="fpc" placeholder="请输入计生证号码">
+                                </div>
+                                <div class="form-group">
+                                    <label>手术日期:</label>
+                                    <input id="operation" type="text" placeholder="请选择日期" class="form_datetime form-control">
+                                </div>
+                            </form>
+                        </div>
+
+                        <!--模拟框底部-->
+                        <div class="modal-footer"> 
+                            <button type="button" class="btn btn-primary" onclick="AddInfo()">添加</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+     </div>
+
+    <script type='text/javascript'>
+
+        // BootStrap日期插件
+        $(".form_datetime").datetimepicker({
+        format: 'yyyy-mm-dd', // 显示格式
+        todayHighlight: true, // 今天高亮,默认为false
+        minView: "month", // 设置只显示到月份
+        startView:2, // 选择器打开时显示的视图,2为月份视图
+        forceParse: false, //强制解析
+        showMeridian: true, //为日视图和小时视图启用子午线视图
+        autoclose: true // 选择后自动关闭,默认为false
+        });
+
+        // 请求Ajax添加数据,Jquery方式
+        function AddInfo()
+        {
+            // 可以使用数组传参,.push方法
+             var name = $('#name').val();
+             var num = $('#num').val();
+             var baby = $('#baby').val();
+             var chopital = $('#chopital').val();
+             var fhospital = $('#fhospital').val();
+             var fpc = $('#fpc').val();
+             var operation = $('#operation').val();
+
+             $.ajax({
+                type: "POST",
+                data:{'name':name,'num':num,'baby':baby,'chopital':chopital,'fhospital':fhospital,'fpc':fpc,'operation':operation},
+                url:"{:url('Index/MyAjax/woker_baby')}",
+                success:function(data){
+                    alert(data);
+                    if(data=='添加成功')
+                    // 重定向刷新页面
+                    location.reload();
+                }
+             });
+        }
+
+    </script>

@@ -1,0 +1,180 @@
+
+            <div class="modal fade" id="Add">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+
+                        <!--模拟框头部-->
+                        <div class="modal-header">
+                            <h4 class="modal-title">添加员工信息</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!--模拟框主体-->
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label>姓名:</label>
+                                    <input type="text" class="form-control" id="name" placeholder="请输入姓名">
+                                </div>
+                                <div class="form-group">
+                                    <label class="cotrol-label">性别：</label>
+                                    <div class="radio" id="sex">
+                                            <input type="radio" name="s" checked="checked" value="男" />男
+                                            <input type="radio" name="s" value="女" />女
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>民族:</label>
+                                    <input type="text" class="form-control" id="nation" placeholder="请输入民族">
+                                </div>
+                                <div class="form-group">
+                                    <label>籍贯:</label>
+                                    <input type="text" class="form-control" id="native" placeholder="请输入籍贯">
+                                </div>
+                                <div class="form-group">
+                                    <label">工号:</label>
+                                    <input type="text" class="form-control" id="num" placeholder="请输入工号">
+                                </div>
+                                <div class="form-group">
+                                    <label>出生年月:</label>
+                                    <input id="birthday" type="text" placeholder="请选择日期" class="form_datetime form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>身份证号码:</label>
+                                    <input id="card" type="text" class="form-control"  placeholder="请输入身份证号码">
+                                </div>
+                                <div class="form-group">
+                                    <label>政治面貌:</label>
+                                    <input id="politic" type="text" class="form-control" placeholder="请输入政治面貌">
+                                </div>
+                                <div class="form-group">
+                                    <label class="cotrol-label">婚姻状况：</label>
+                                    <div class="radio" id="mar">
+                                            <input type="radio" name="m" checked="checked" value="已婚"/>已婚
+                                            <input type="radio" name="m" value="未婚" />未婚
+                                    </div>
+                                </div>
+                                <div  class="form-group">
+                                    <label>户口性质</label>
+                                    <select class="form-control" id="res">
+                                        <option value="农业户口">农业户口</option>
+                                        <option value="非农业户口">非农业户口</option>
+                                    </select>
+                                </div>
+                                <div  class="form-group">
+                                    <label>所在食堂</label>
+                                    <select class="form-control" id="dinner">
+                                        <option value="第一食堂">第一食堂</option>
+                                        <option value="第二食堂">第二食堂</option>
+                                        <option value="第三食堂">第三食堂</option>
+                                        <option value="第四食堂">第四食堂</option>
+                                    </select>
+                                </div>
+                                <div  class="form-group">
+                                    <label>部门</label>
+                                    <select class="form-control" id="branch">
+                                        <option value="第一部门">第一部门</option>
+                                        <option value="第二部门">第二部门</option>
+                                        <option value="第三部门">第三部门</option>
+                                        <option value="第四部门">第四部门</option>
+                                    </select>
+                                </div>
+                                <div  class="form-group">
+                                    <label>编制</label>
+                                    <select class="form-control" id="strength">
+                                        <option value="事业编制">事业编制</option>
+                                        <option value="工勤编制">工勤编制</option>
+                                        <option value="行政编制">行政编制</option>
+                                        <option value="其它编制">其它编制</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>学历</label>
+                                    <input type="text" class="form-control" id="edu" placeholder="请输入学历">
+                                </div>
+                                <div class="form-group">
+                                    <label>毕业学校</label>
+                                    <input type="text" class="form-control" id="school" placeholder="请输入毕业学校">
+                                </div>
+                                <div class="form-group">
+                                    <label>联系电话</label>
+                                    <input type="text" class="form-control" id="phone" placeholder="请输入联系电话">
+                                </div>
+                                <div class="form-group">
+                                    <label>邮箱</label>
+                                    <input type="text" class="form-control" id="email" placeholder="请输入邮箱">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">户口所在地</label>
+                                    <input type="text" class="form-control" id="raddress" placeholder="请输入户口所在地">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">现居地址</label>
+                                    <input type="text" class="form-control" id="naddress" placeholder="请输入现居地址">
+                                </div>
+                            </form>
+                        </div>
+
+                        <!--模拟框底部-->
+                        <div class="modal-footer"> 
+                            <button type="button" class="btn btn-primary" onclick="AddInfo()">添加</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+     </div>
+
+    <script type='text/javascript'>
+
+        // BootStrap日期插件
+        $(".form_datetime").datetimepicker({
+        format: 'yyyy-mm-dd', // 显示格式
+        todayHighlight: true, // 今天高亮,默认为false
+        minView: "month", // 设置只显示到月份
+        startView:2, // 选择器打开时显示的视图,2为月份视图
+        forceParse: false, //强制解析
+        showMeridian: true, //为日视图和小时视图启用子午线视图
+        autoclose: true // 选择后自动关闭,默认为false
+        });
+
+        // 请求Ajax添加数据,Jquery方式
+        function AddInfo()
+        {
+            // 可以使用数组传参,.push方法
+             var name = $('#name').val();
+             var sex = $("input[name='s']:checked").val();
+             var nation = $('#nation').val();
+             var native = $('#native').val();
+             var num = $('#num').val();
+             var birthday = $('#birthday').val();
+             var card = $('#card').val();
+             var res = $('#res').val();
+             var dinner = $('#dinner').val();
+             var branch = $('#branch').val();
+             var strength = $('#strength').val();
+             var edu = $('#edu').val();
+             var school = $('#school').val();
+             var phone = $('#phone').val();
+             var email = $('#strength').val();
+             var raddress = $('#raddress').val();
+             var naddress = $('#naddress').val();
+             var politic = $('#politic').val();
+             var marriager = $("input[name='m']:checked").val();
+
+             $.ajax({
+                type: "POST",
+                data:{'name':name,'sex':sex,'nation':nation,'native':native,'num':num,'card':card,'res':res,'dinner':dinner,'branch':branch,'strength':strength,'edu':edu,'school':school,'phone':phone,'email':email,'raddress':raddress,'naddress':naddress,'birthday':birthday,'politic':politic,'marriager':marriager},
+                url:"{:url('Index/MyAjax/woker_add')}",
+                success:function(data){
+                    alert(data);
+                    if(data=='添加成功')
+                    // 重定向刷新页面
+                    location.reload();
+                }
+             });
+        }
+
+    </script>

@@ -1,0 +1,715 @@
+<div class="container" id="box">
+       <div class="container" style="margin-top: 20px; margin-bottom: 30px;">
+        <h4>数据管理</h4>
+       </div>
+       <div style="margin-bottom: 30px;">
+		   
+           <a style="color: #fff" class="btn btn-primary" onclick="scanf(1)">一键备份</a>
+		<div class="btn-group">
+                <button type="button" class="btn btn-primary" >一键还原</button>
+                <button type="button" class="btn btn-primary dropdown-toggle"  data-toggle="dropdown"  >
+                <span class="caret"></span>
+                
+                </button>
+				
+                <ul class="dropdown-menu" role="menu">
+				{volist name='list' id='v'}
+				<?php if($v['logo']==0){?>
+                <li ><a   class="a_hover" onclick="dored('{$v.name}');">{$v.name}</a></li>
+				  <?php }?>
+                  
+                {/volist}
+                </ul>
+				 
+</div>
+		   
+		  
+		   
+           <a  style="color: #fff"  class="btn btn-primary"   href="{:url('Backup/index',['name'=>'managers'])}" >一键导出</a>
+		    
+       </div>
+	   
+        <table class="table table-bordered table-hover">
+            <caption class="text-center">数据类型表</caption>
+            <tr>
+                <th></th><th class="text-danger text-center">操作</th>
+            </tr>
+            <tr class="text-primary">
+                <th class="text-center">保险</th> 
+                <th class="text-center">
+                    <button type="button" class="btn btn-info" value="insurance"  onclick="test(this.value)" >数据备份</button>
+					
+                    <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#myModal"   >数据还原</button>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					  <div class="modal fade" id="myModal">
+					           <div class="modal-dialog ">
+					               <div class="modal-content">
+					
+					                   <!--模拟框头部-->
+					                   <div class="modal-header">
+					                       <h4 class="modal-title"  style="color: #777777;">选择文件</h4>
+					                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+					                   </div>
+					
+					                   <!--模拟框主体-->
+					                   <div class="modal-body">
+					                      
+					                           <div class="form-group" align="left">
+					                               {volist name='list' id='v'}
+												   
+												   
+												    <?php if($v['logo']==1){?>     <li><a  style="color: #777777;" onclick="dored1('{$v.name}');">{$v.name}</a></li>
+												   <?php }?>
+												   
+												  
+					                            
+					                                 
+					                               {/volist}
+					                           </div>
+					                          
+					                      
+					                   </div>
+					
+					                   <!--模拟框底部-->
+					                   <div class="modal-footer"> 
+					                   
+					                       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					                   </div>
+					
+					               </div>
+					           </div>
+					       </div>
+					
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+			
+					
+					
+					
+					
+					
+					
+				
+					
+					
+					
+					
+					
+					
+					
+				<a   class="btn btn-info"   href="{:url('Backup/index',['name'=>'insurance'])}" >数据导出</a>
+					
+                    
+                </th> 
+            </tr>
+            <tr class="text-primary">
+                <th class="text-center">公积金</th>
+                <th class="text-center">
+                    <button type="button" class="btn btn-info" value="mpf"  onclick="test(this.value)" >数据备份</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal2">数据还原</button>
+					
+					<div class="modal fade" id="myModal2">
+					           <div class="modal-dialog ">
+					               <div class="modal-content">
+					
+					                   <!--模拟框头部-->
+					                   <div class="modal-header">
+					                       <h4 class="modal-title"  style="color: #777777;">选择文件</h4>
+					                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+					                   </div>
+					
+					                   <!--模拟框主体-->
+					                   <div class="modal-body">
+					                      
+					                           <div class="form-group" align="left">
+					                               {volist name='list' id='v'}
+												   
+												   
+												    <?php if($v['logo']==2){?>     <li><a  style="color: #777777;" onclick="dored1('{$v.name}');">{$v.name}</a></li>
+												   <?php }?>
+												   
+												  
+					                            
+					                                 
+					                               {/volist}
+					                           </div>
+					                          
+					                      
+					                   </div>
+					
+					                   <!--模拟框底部-->
+					                   <div class="modal-footer"> 
+					                   
+					                       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					                   </div>
+					
+					               </div>
+					           </div>
+					       </div>
+					
+					</div>
+					
+                    <a   class="btn btn-info"   href="{:url('Backup/index',['name'=>'mpf'])}" >数据导出</a>
+                </th>
+            </tr>
+            <tr class="text-primary">
+                <th class="text-center">员工信息</th>
+                <th class="text-center">
+                    <button type="button" class="btn btn-info" value="woker"  onclick="test(this.value)" >数据备份</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal3">数据还原</button>
+					
+					<div class="modal fade" id="myModal3">
+					           <div class="modal-dialog ">
+					               <div class="modal-content">
+					
+					                   <!--模拟框头部-->
+					                   <div class="modal-header">
+					                       <h4 class="modal-title"  style="color: #777777;">选择文件</h4>
+					                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+					                   </div>
+					
+					                   <!--模拟框主体-->
+					                   <div class="modal-body">
+					                      
+					                           <div class="form-group" align="left">
+					                               {volist name='list' id='v'}
+												   
+												   
+												    <?php if($v['logo']==3){?>     <li><a  style="color: #777777;" onclick="dored1('{$v.name}');">{$v.name}</a></li>
+												   <?php }?>
+												   
+												  
+					                            
+					                                 
+					                               {/volist}
+					                           </div>
+					                          
+					                      
+					                   </div>
+					
+					                   <!--模拟框底部-->
+					                   <div class="modal-footer"> 
+					                   
+					                       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					                   </div>
+					
+					               </div>
+					           </div>
+					       </div>
+					
+					</div>
+					
+                    <a   class="btn btn-info"   href="{:url('Backup/index',['name'=>'woker'])}" >数据导出</a>
+                </th>
+            </tr>
+            <tr class="text-primary">
+                <th class="text-center">家庭信息</th>
+                <th class="text-center">
+                    <button type="button" class="btn btn-info" value="home"  onclick="test(this.value)"  >数据备份</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal4" >数据还原</button>
+					
+					<div class="modal fade" id="myModal4">
+					           <div class="modal-dialog ">
+					               <div class="modal-content">
+					
+					                   <!--模拟框头部-->
+					                   <div class="modal-header">
+					                       <h4 class="modal-title"  style="color: #777777;">选择文件</h4>
+					                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+					                   </div>
+					
+					                   <!--模拟框主体-->
+					                   <div class="modal-body">
+					                      
+					                           <div class="form-group" align="left">
+					                               {volist name='list' id='v'}
+												   
+												   
+												    <?php if($v['logo']==4){?>     <li><a  style="color: #777777;" onclick="dored1('{$v.name}');">{$v.name}</a></li>
+												   <?php }?>
+												   
+												  
+					                            
+					                                 
+					                               {/volist}
+					                           </div>
+					                          
+					                      
+					                   </div>
+					
+					                   <!--模拟框底部-->
+					                   <div class="modal-footer"> 
+					                   
+					                       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					                   </div>
+					
+					               </div>
+					           </div>
+					       </div>
+					
+					</div>
+					
+                    <a   class="btn btn-info"   href="{:url('Backup/index',['name'=>'home'])}" >数据导出</a>
+                </th>
+            </tr>
+            <tr class="text-primary">
+                <th class="text-center">证件情况</th>
+                <th class="text-center">
+                    <button type="button" class="btn btn-info" value="card"  onclick="test(this.value)">数据备份</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal5" >数据还原</button>
+					
+					<div class="modal fade" id="myModal5">
+					           <div class="modal-dialog ">
+					               <div class="modal-content">
+					
+					                   <!--模拟框头部-->
+					                   <div class="modal-header">
+					                       <h4 class="modal-title"  style="color: #777777;">选择文件</h4>
+					                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+					                   </div>
+					
+					                   <!--模拟框主体-->
+					                   <div class="modal-body">
+					                      
+					                           <div class="form-group" align="left">
+					                               {volist name='list' id='v'}
+												   
+												   
+												    <?php if($v['logo']==5){?>     <li><a  style="color: #777777;" onclick="dored1('{$v.name}');">{$v.name}</a></li>
+												   <?php }?>
+												   
+												  
+					                            
+					                                 
+					                               {/volist}
+					                           </div>
+					                          
+					                      
+					                   </div>
+					
+					                   <!--模拟框底部-->
+					                   <div class="modal-footer"> 
+					                   
+					                       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					                   </div>
+					
+					               </div>
+					           </div>
+					       </div>
+					
+					</div>
+					
+                    <a   class="btn btn-info"   href="{:url('Backup/index',['name'=>'card'])}" >数据导出</a>
+                </th>
+            </tr>
+            <tr class="text-primary">
+                <th class="text-center">生育信息</th>
+                <th class="text-center">
+                    <button type="button" class="btn btn-info" value="baby"  onclick="test(this.value)">数据备份</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal6">数据还原</button>
+					
+					<div class="modal fade" id="myModal6">
+					           <div class="modal-dialog ">
+					               <div class="modal-content">
+					
+					                   <!--模拟框头部-->
+					                   <div class="modal-header">
+					                       <h4 class="modal-title"  style="color: #777777;">选择文件</h4>
+					                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+					                   </div>
+					
+					                   <!--模拟框主体-->
+					                   <div class="modal-body">
+					                      
+					                           <div class="form-group" align="left">
+					                               {volist name='list' id='v'}
+												   
+												   
+												    <?php if($v['logo']==6){?>     <li><a  style="color: #777777;" onclick="dored1('{$v.name}');">{$v.name}</a></li>
+												   <?php }?>
+												   
+												  
+					                            
+					                                 
+					                               {/volist}
+					                           </div>
+					                          
+					                      
+					                   </div>
+					
+					                   <!--模拟框底部-->
+					                   <div class="modal-footer"> 
+					                   
+					                       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					                   </div>
+					
+					               </div>
+					           </div>
+					       </div>
+					
+					</div>
+					
+                    <a   class="btn btn-info"   href="{:url('Backup/index',['name'=>'baby'])}" >数据导出</a>
+                </th>
+            </tr>
+            <tr class="text-primary">
+                <th class="text-center">就职情况</th>
+                <th class="text-center">
+                    <button type="button" class="btn btn-info" value="jobinfo"  onclick="test(this.value)" >数据备份</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal7">数据还原</button>
+					
+					<div class="modal fade" id="myModal7">
+					           <div class="modal-dialog ">
+					               <div class="modal-content">
+					
+					                   <!--模拟框头部-->
+					                   <div class="modal-header">
+					                       <h4 class="modal-title"  style="color: #777777;">选择文件</h4>
+					                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+					                   </div>
+					
+					                   <!--模拟框主体-->
+					                   <div class="modal-body">
+					                      
+					                           <div class="form-group" align="left">
+					                               {volist name='list' id='v'}
+												   
+												   
+												    <?php if($v['logo']==7){?>     <li><a  style="color: #777777;" onclick="dored1('{$v.name}');">{$v.name}</a></li>
+												   <?php }?>
+												   
+												  
+					                            
+					                                 
+					                               {/volist}
+					                           </div>
+					                          
+					                      
+					                   </div>
+					
+					                   <!--模拟框底部-->
+					                   <div class="modal-footer"> 
+					                   
+					                       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					                   </div>
+					
+					               </div>
+					           </div>
+					       </div>
+					
+					</div>
+					
+                    <a   class="btn btn-info"   href="{:url('Backup/index',['name'=>'jobinfo'])}" >数据导出</a>
+                </th>
+            </tr>
+            <tr class="text-primary">
+                <th class="text-center">证书档案</th>
+                <th class="text-center">
+                    <button type="button" class="btn btn-info" value="jobpaper"  onclick="test(this.value)" >数据备份</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal8">数据还原</button>
+					
+					<div class="modal fade" id="myModal8">
+					           <div class="modal-dialog ">
+					               <div class="modal-content">
+					
+					                   <!--模拟框头部-->
+					                   <div class="modal-header">
+					                       <h4 class="modal-title"  style="color: #777777;">选择文件</h4>
+					                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+					                   </div>
+					
+					                   <!--模拟框主体-->
+					                   <div class="modal-body">
+					                      
+					                           <div class="form-group" align="left">
+					                               {volist name='list' id='v'}
+												   
+												   
+												    <?php if($v['logo']==8){?>     <li><a  style="color: #777777;" onclick="dored1('{$v.name}');">{$v.name}</a></li>
+												   <?php }?>
+												   
+												  
+					                            
+					                                 
+					                               {/volist}
+					                           </div>
+					                          
+					                      
+					                   </div>
+					
+					                   <!--模拟框底部-->
+					                   <div class="modal-footer"> 
+					                   
+					                       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					                   </div>
+					
+					               </div>
+					           </div>
+					       </div>
+					
+					</div>
+					
+                    <a   class="btn btn-info"   href="{:url('Backup/index',['name'=>'jobpaper'])}" >数据导出</a>
+                </th>
+            </tr>
+            <tr class="text-primary">
+                <th class="text-center">工作证</th>
+                <th class="text-center">
+                    <button type="button" class="btn btn-info" value="skill"  onclick="test(this.value)">数据备份</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal9">数据还原</button>
+					
+					<div class="modal fade" id="myModal9">
+					           <div class="modal-dialog ">
+					               <div class="modal-content">
+					
+					                   <!--模拟框头部-->
+					                   <div class="modal-header">
+					                       <h4 class="modal-title"  style="color: #777777;">选择文件</h4>
+					                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+					                   </div>
+					
+					                   <!--模拟框主体-->
+					                   <div class="modal-body">
+					                      
+					                           <div class="form-group" align="left">
+					                               {volist name='list' id='v'}
+												   
+												   
+												    <?php if($v['logo']==9){?>     <li><a  style="color: #777777;" onclick="dored1('{$v.name}');">{$v.name}</a></li>
+												   <?php }?>
+												   
+												  
+					                            
+					                                 
+					                               {/volist}
+					                           </div>
+					                          
+					                      
+					                   </div>
+					
+					                   <!--模拟框底部-->
+					                   <div class="modal-footer"> 
+					                   
+					                       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					                   </div>
+					
+					               </div>
+					           </div>
+					       </div>
+					
+					</div>
+					
+                    <a   class="btn btn-info"   href="{:url('Backup/index',['name'=>'skill'])}" >数据导出</a>
+                </th>
+            </tr>
+			  <tr class="text-primary">
+			    <th class="text-center">伙食费</th>
+			    <th class="text-center">
+			        <button type="button" class="btn btn-info" value="dinner"  onclick="test(this.value)">数据备份</button>
+			        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal10">数据还原</button>
+					
+					<div class="modal fade" id="myModal10">
+					           <div class="modal-dialog ">
+					               <div class="modal-content">
+					
+					                   <!--模拟框头部-->
+					                   <div class="modal-header">
+					                       <h4 class="modal-title"  style="color: #777777;">选择文件</h4>
+					                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+					                   </div>
+					
+					                   <!--模拟框主体-->
+					                   <div class="modal-body">
+					                      
+					                           <div class="form-group" align="left">
+					                               {volist name='list' id='v'}
+												   
+												   
+												    <?php if($v['logo']==10){?>     <li><a  style="color: #777777;" onclick="dored1('{$v.name}');">{$v.name}</a></li>
+												   <?php }?>
+												   
+												  
+					                            
+					                                 
+					                               {/volist}
+					                           </div>
+					                          
+					                      
+					                   </div>
+					
+					                   <!--模拟框底部-->
+					                   <div class="modal-footer"> 
+					                   
+					                       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					                   </div>
+					
+					               </div>
+					           </div>
+					       </div>
+					
+					</div>
+					
+			        <a   class="btn btn-info"   href="{:url('Backup/index',['name'=>'dinner'])}" >数据导出</a>
+			    </th>
+			</tr>
+			  <tr class="text-primary">
+			    <th class="text-center">培训信息</th>
+			    <th class="text-center">
+			        <button type="button" class="btn btn-info" value="train"  onclick="test(this.value)" >数据备份</button>
+			        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal11">数据还原</button>
+					
+					<div class="modal fade" id="myModal11">
+					           <div class="modal-dialog ">
+					               <div class="modal-content">
+					
+					                   <!--模拟框头部-->
+					                   <div class="modal-header">
+					                       <h4 class="modal-title"  style="color: #777777;">选择文件</h4>
+					                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+					                   </div>
+					
+					                   <!--模拟框主体-->
+					                   <div class="modal-body">
+					                      
+					                           <div class="form-group" align="left">
+					                               {volist name='list' id='v'}
+												   
+												   
+												    <?php if($v['logo']==11){?>     <li><a  style="color: #777777;" onclick="dored1('{$v.name}');">{$v.name}</a></li>
+												   <?php }?>
+												   
+												  
+					                            
+					                                 
+					                               {/volist}
+					                           </div>
+					                          
+					                      
+					                   </div>
+					
+					                   <!--模拟框底部-->
+					                   <div class="modal-footer"> 
+					                   
+					                       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					                   </div>
+					
+					               </div>
+					           </div>
+					       </div>
+					
+					</div>
+					
+			        <a   class="btn btn-info"   href="{:url('Backup/index',['name'=>'train'])}" >数据导出</a>
+			    </th>
+			</tr>
+        </table>
+     </div>
+<style type="text/css">
+	
+	 /* a {color: chartreuse !important;} */
+	 a:hover{color:cornflowerblue!important;}
+	.form-group li{list-style: none;}
+</style>
+<script type="text/javascript">
+		
+
+	   function dored(name)
+	{
+		
+		
+		
+		alert('确定还原数据库全部数据？');
+		   $.ajax({
+		    type: "POST",
+		    data:{"name":name},
+		    url:"{:url('Index/MyAjax/do_red')}",
+		    success:function(data){
+		        alert(data);  
+		    }
+		 });
+		 }
+		 
+		 
+		    function dored1(name)
+		 {
+		 	
+		 	
+		 	
+		 	alert('确定还原该表数据？');
+		 	   $.ajax({
+		 	    type: "POST",
+		 	    data:{"name":name},
+		 	    url:"{:url('Index/MyAjax/do_reds')}",
+		 	    success:function(data){
+		 	        alert(data);  
+		 	    }
+		 	 });
+		 	 }
+		 	 
+		 
+		 
+		 function scanf(name) 
+		 {
+			  $.ajax({
+			    type: "POST",
+			    data:{"name":name},
+			    url:"{:url('Index/Backup/inde')}",
+			    success:function(data){
+			        alert(data);  
+			    }
+			 }); 
+		 }
+		 
+		  function test(name) 
+		 {
+			     
+		 			  $.ajax({
+		 			    type: "POST",
+		 			    data:{"name":name},
+		 			    url:"{:url('Index/Backup/inds')}",
+						success:function(data){
+						    alert(data);  }
+		 			  
+		 			 }); 
+		 }
+		
+		
+		 function tests(name) 
+		{
+					    
+					  $.ajax({
+					    type: "POST",
+					    data:{"name":name},
+					    url:"{:url('Index/MyAjax/indss')}",
+								success:function(data){
+								    }
+					  
+					 }); 
+		}
+		 	
+		 </script>

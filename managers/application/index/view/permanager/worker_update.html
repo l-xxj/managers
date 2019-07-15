@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>人事管理页</title>
+   
+    <!--BootStrap-->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!--BootStrap时间下拉插件-->
+    <script src="http://localhost/manager/public/static/js/bootstrap-datetimepicker.js"></script>
+    <link rel="stylesheet" href="http://localhost/manager/public/static/css/bootstrap-datetimepicker.min.css">
+</head>
+<body>
+    {include file="common/head"}
+    <!--菜单栏-->
+    <div class="main">
+        <div class="row">
+        {include file="common/left"}
+        <!--管理页-->
+            <div class="col-md-10">
+            <!--管理页-->
+                 <form method="Post" action="{:url('permanager/worker_update')}">
+                    <h4 class="modal-title" style="margin-top: 10px; margin-bottom: 20px">修改员工信息</h4>
+                    {foreach name="info" item="vo"}
+                        <input name='id' type=hidden value={$vo.id}>
+                        <div class="form-group">
+                            <label>姓名:</label>
+                            <input type="text" class="form-control" name="name" value={$vo.name}>
+                        </div>
+                        <div class="form-group">
+                            <label>民族:</label>
+                            <input type="text" class="form-control" name="nation" value={$vo.nation}>
+                        </div>
+                        <div class="form-group">
+                            <label>性别:</label>
+                            <input type="text" class="form-control" name="sex" value={$vo.sex}>
+                        </div>
+                        <div class="form-group">
+                            <label>籍贯:</label>
+                            <input type="text" class="form-control" name="native"  value={$vo.native}>
+                        </div>
+                        <div class="form-group">
+                            <label">工号:</label>
+                            <input type="text" class="form-control" name="num" value={$vo.num}>
+                        </div>
+                        <div class="form-group">
+                            <label>出生年月:</label>
+                            <input name="birthday" type="text" value={$vo.birthday} class="form_datetime form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>身份证号码:</label>
+                            <input name="card" type="text" class="form-control"  value={$vo.card}>
+                        </div>
+                        <div class="form-group">
+                            <label>政治面貌:</label>
+                            <input name="politic" type="text" class="form-control" value={$vo.politic}>
+                        </div>
+                        <div class="form-group">
+                            <label class="cotrol-label">婚姻状况：</label>
+                            <div class="radio" name="mar">
+                                    <input type="radio" name="marriage" checked="checked" value="已婚"/>已婚
+                                    <input type="radio" name="marriage" value="未婚" />未婚
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label>户口性质:</label>
+                            <input type="text" class="form-control" name="residence" value={$vo.residence}>
+                        </div>
+                        <div class="form-group">
+                            <label>所在食堂:</label>
+                            <input type="text" class="form-control" name="dinner" value={$vo.dinner}>
+                        </div>
+                        <div class="form-group">
+                            <label>部门:</label>
+                            <input type="text" class="form-control" name="branch" value={$vo.branch}>
+                        </div>
+                        <div class="form-group">
+                            <label>编制:</label>
+                            <input type="text" class="form-control" name="strength" value={$vo.strength}>
+                        </div>
+                        <div class="form-group">
+                            <label>学历</label>
+                            <input type="text" class="form-control" name="edu" value={$vo.edu}>
+                        </div>
+                        <div class="form-group">
+                            <label>毕业学校</label>
+                            <input type="text" class="form-control" name="school"  value={$vo.school}>
+                        </div>
+                        <div class="form-group">
+                            <label>联系电话</label>
+                            <input type="text" class="form-control" name="phone" value={$vo.phone}>
+                        </div>
+                        <div class="form-group">
+                            <label>邮箱</label>
+                            <input type="text" class="form-control" name="email" value={$vo.email}>
+                        </div>
+                        <div class="form-group">
+                            <label for="">户口所在地</label>
+                            <input type="text" class="form-control" name="raddress" value={$vo.raddress}>
+                        </div>
+                        <div class="form-group">
+                            <label for="">现居地址</label>
+                            <input type="text" class="form-control" name="naddress"  value={$vo.naddress}>
+                        </div>
+                        {/foreach}
+                         <div class="form-group">
+                            <input style="color: #fff" type="submit" class="btn btn-primary" value="修改">
+                            <a style="color: #fff" type="button" class="btn btn-secondary" href="{:url('permanager/woker')}">取消</a>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+    
+    <script type='text/javascript'>
+
+        // BootStrap日期插件
+        $(".form_datetime").datetimepicker({
+        format: 'yyyy-mm-dd', // 显示格式
+        todayHighlight: true, // 今天高亮,默认为false
+        minView: "month", // 设置只显示到月份
+        startView:2, // 选择器打开时显示的视图,2为月份视图
+        forceParse: false, //强制解析
+        showMernameian: true, //为日视图和小时视图启用子午线视图
+        autoclose: true // 选择后自动关闭,默认为false
+        });
+    </script>
+</body>
+</html>

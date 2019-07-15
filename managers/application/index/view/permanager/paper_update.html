@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>人事管理页</title>
+   
+    <!--BootStrap-->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!--BootStrap时间下拉插件-->
+    <script src="http://localhost/manager/public/static/js/bootstrap-datetimepicker.js"></script>
+    <link rel="stylesheet" href="http://localhost/manager/public/static/css/bootstrap-datetimepicker.min.css">
+</head>
+<body>
+    {include file="common/head"}
+    <!--菜单栏-->
+    <div class="main">
+        <div class="row">
+        {include file="common/left"}
+        <!--管理页-->
+            <div class="col-md-10">
+            <!--管理页-->
+                 <form method="Post" action="{:url('permanager/paper_update')}">
+                    <h4 class="modal-title" style="margin-top: 10px; margin-bottom: 20px">修改证件信息</h4>
+                    {foreach name="info" item="vo"}
+                        <input name='id' type=hidden value={$vo.id}>
+                        <div class="form-group">
+                            <label>姓名:</label>
+                            <input type="text" class="form-control" name="name" value={$vo.name}>
+                        </div>
+                        <div class="form-group">
+                            <label">工号:</label>
+                            <input type="text" class="form-control" name="num" value={$vo.num}>
+                        </div>
+                        <div class="form-group">
+                            <label">机构:</label>
+                            <input type="text" class="form-control" name="organization" value={$vo.organization}>
+                        </div>
+                        <div class="form-group">
+                            <label>办理时间:</label>
+                            <input name="htime" type="text" placeholder="请选择日期" class="form_datetime form-control" value={$vo.htime}>
+                        </div>
+                        <div class="form-group">
+                            <label">是否持证:</label>
+                            <input type="text" class="form-control" name="hold" value={$vo.hold}>
+                        </div>
+                        <div class="form-group">
+                            <label>到期时间:</label>
+                            <input name="etime" type="text" placeholder="请选择日期" class="form_datetime form-control" value={$vo.etime}>
+                        </div>
+                        <div class="form-group">
+                            <label">编号:</label>
+                            <input type="text" class="form-control" name="number" value={$vo.number}>
+                        </div>
+                        <div class="form-group">
+                            <label">户籍地:</label>
+                            <input type="text" class="form-control" name="census" value={$vo.census}>
+                        </div>
+                        <div class="form-group">
+                            <label">避孕措施:</label>
+                            <input type="text" class="form-control" name="measure" value={$vo.measure}>
+                        </div>
+                        <div class="form-group">
+                            <label">计生部电话:</label>
+                            <input type="text" class="form-control" name="phone" value={$vo.phone}>
+                        </div>
+                        <div class="form-group">
+                            <label">现居地址:</label>
+                            <input type="text" class="form-control" name="address" value={$vo.address}>
+                        </div>
+                        <div class="form-group">
+                            <label>计生证时间:</label>
+                            <input name="ctime" type="text" placeholder="请选择日期" class="form_datetime form-control" value={$vo.ctime}>
+                        </div>
+                         <div class="form-group">
+                            <label">证件类型:</label>
+                            <input type="text" class="form-control" name="type" value={$vo.type}>
+                        </div>
+                        {/foreach}
+                         <div class="form-group">
+                            <input style="color: #fff" type="submit" class="btn btn-primary" value="修改">
+                            <a style="color: #fff" type="button" class="btn btn-secondary" href="{:url('permanager/paper')}">取消</a>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+    
+    <script type='text/javascript'>
+
+        // BootStrap日期插件
+        $(".form_datetime").datetimepicker({
+        format: 'yyyy-mm-dd', // 显示格式
+        todayHighlight: true, // 今天高亮,默认为false
+        minView: "month", // 设置只显示到月份
+        startView:2, // 选择器打开时显示的视图,2为月份视图
+        forceParse: false, //强制解析
+        showMernameian: true, //为日视图和小时视图启用子午线视图
+        autoclose: true // 选择后自动关闭,默认为false
+        });
+    </script>
+</body>
+</html>

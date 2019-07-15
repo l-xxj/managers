@@ -1,0 +1,19 @@
+<!--导航-->
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+   <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar navbar-brand" href="" style="color: #fff">人事管理系统</a>
+    </div>
+       <ul class="nav navbar-nav">
+           <li class="active nav-item"><a href="" class="nav-link">欢迎你:</a></li>
+           <li class="nav-item"><a class="nav-link" id="1">
+		   <?php 		   
+		  
+		   echo $_COOKIE['user_name']; 
+		  
+		   ?>
+		   </a></li>
+           <li class=""><a href="{:url('Index/index')}" class="btn btn-primary"> 退出</a>
+       </ul>
+   </div>
+</nav>

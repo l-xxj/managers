@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>系统管理页</title>
+    <!--BootStrap-->
+    
+    
+    
+    
+	
+	 <script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<!--BootStrap-->
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	  <!--BootStrap时间下拉插件-->
+	<script src="http://localhost/manager/public/static/js/bootstrap-datetimepicker.js"></script>
+	<link rel="stylesheet" href="http://localhost/manager/public/static/css/bootstrap-datetimepicker.min.css">
+	
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+       <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar navbar-brand" href="" style="color: #fff">人事管理系统</a>
+        </div>
+           <ul class="nav navbar-nav">
+               <li class="active nav-item"><a href="" class="nav-link">欢迎你:</a></li>
+               <li class="nav-item"><a class="nav-link" id="1">
+    		   <?php 		   		  
+    		   echo $_COOKIE['user_name']; 		  
+    		   ?>
+    		   </a></li>
+               <li class=""><a href="{:url('Index/index')}" class="btn btn-primary"> 退出</a>
+           </ul>
+       </div>
+    </nav>
+    <!--菜单栏-->
+    <div class="main">
+        <div class="row">
+        {include file="common/pleft"}
+        <!--管理页-->
+            <div class="col-md-10">
+            <!--管理页-->
+            {include file="s-manager/power"}
+            </div>
+        </div>
+    </div>  
+
+</body>
+
+</html>

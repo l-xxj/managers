@@ -1,0 +1,99 @@
+<div class="container" id="box">
+       <div class="container" style="margin-top: 20px; margin-bottom: 30px;">
+        <h4>员工基本信息</h4>
+       </div>
+
+        <table class="table table-bordered table-hover">
+            <caption class="text-center">员工信息表</caption>
+            <div id="xxx"></div>
+            <tr class="text-danger">
+                <th class="text-center">序号</th>
+                <th class="text-center">姓名</th>
+                <th class="text-center">性别</th>
+                <th class="text-center">编制</th>
+                <th class="text-center">工号</th>
+                <th class="text-center">所在食堂</th>
+                <th class="text-center">部门</th>
+
+            </tr>
+            {foreach name="woker" item="vo"}
+            <tr class="text-center">
+                <td>{$vo.id}</td> 
+                <td>{$vo.name}</td>
+                <td>{$vo.sex}</td>
+                <td>{$vo.strength}</td> 
+                <td>{$vo.num}</td>
+                <td>{$vo.dinner}</td>
+                <td>{$vo.branch}</td>
+
+            </tr>
+            {/foreach}
+            <tr>
+            <td colspan="6" class="text-center">
+                {$woker->render()}
+            </td>
+            <td colspan="12" class="text-right">
+            </td>
+        </tr>
+        </table>
+
+            <div class="modal fade" id="Modal">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+
+                        <!--模拟框头部-->
+                        <div class="modal-header">
+                            <h4 class="modal-title">员工详情</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!--模拟框主体-->
+                        <div class="modal-body">
+                            <!-- Ajax返回的数据渲染在这里 -->
+                            <div id="info"></div>
+                        </div>
+
+                        <!--模拟框底部-->
+                        <div class="modal-footer"> 
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+     </div>
+     <!-- Ajax控制 -->
+    <script type='text/javascript'>
+                
+        // 请求Ajax返回查询数据,使用Jquery方式更简,详看情woker_add.html
+        function ShowInfo(ID)
+        {
+             if (ID=="")
+            {
+                document.getElementById("info").innerHTML="no data";
+                return;
+            } 
+            if (window.XMLHttpRequest)
+            {
+                // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    document.getElementById("info").innerHTML=xmlhttp.responseText;
+                }
+            }
+            // 使用GET方法向控制层的PHP请求数据
+            xmlhttp.open("GET",'{:url("Index/MyAjax/woker_info_one")}?id='+ID,true);
+            xmlhttp.send(); 
+        }
+
+    </script>

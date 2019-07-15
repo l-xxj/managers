@@ -1,0 +1,41 @@
+<div class="container" id="box">
+       <div class="container" style="margin-top: 20px; margin-bottom: 30px;">
+        <h4>补助情况</h4>
+       </div>
+       <div style="margin-bottom: 30px;">
+           <a style="color: #fff; margin-right: 5px" class="btn btn-primary" data-toggle="modal" data-target="#Add">添加补助信息</a>
+       </div>
+        <table class="table table-bordered table-hover">
+            <caption class="text-center">补助信息表</caption>
+            <tr class="text-danger">
+                <th class="text-center">序号</th>
+                <th class="text-center">姓名</th>
+                <th class="text-center">工号</th>
+                <th class="text-center">补助名称</th>
+                <th class="text-center">补助时间</th>
+                <th class="text-center">补助金额</th>
+                <th class="text-center">操作</th>
+            </tr>
+            {foreach name="subside" item="vo"}
+            <tr class="text-center">
+                <td>{$vo.id}</td> 
+                <td>{$vo.name}</td>
+                <td>{$vo.num}</td>
+                <td>{$vo.sname}</td> 
+                <td>{$vo.stime}</td>
+                <td>{$vo.snum}</td>
+                <td>
+                    <a style="color: #fff" class="btn btn-primary" href="{:url('permanager/subside_update',array('ids'=>$vo['id']))}">修改</a>
+                    <a style="color: #fff; margin-right: 5px" class="btn btn-danger" href="{:url('permanager/subside',array('id'=>$vo['id']))}" onclick="return confirm('删除不可恢复,确认删除吗?')">删除</a>
+                </td>
+            </tr>
+            {/foreach}
+            <tr>
+            <td colspan="12" class="text-right">
+                <a style="color: #fff" class="btn btn-danger" href="{:url('permanager/subside',array('delall'=>'1'))}" onclick="return confirm('确认全部删除?')">删除全部</a>
+            </td>
+        </tr>
+
+        {include file="p-manager/worker_subside"}
+        </table>
+     </div>

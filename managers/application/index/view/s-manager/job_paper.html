@@ -1,0 +1,35 @@
+<div class="container" id="box">
+       <div class="container" style="margin-top: 20px; margin-bottom: 30px;">
+        <h4>工作证信息</h4>
+       </div>
+
+        <table class="table table-bordered table-hover">
+            <caption class="text-center">工作证信息表</caption>
+            <tr class="text-danger">
+                <th class="text-center">序号</th>
+                <th class="text-center">姓名</th>
+                <th class="text-center">工号</th>
+                <th class="text-center">办理日期</th>
+                <th class="text-center">过期时间</th>
+                <th class="text-center">发证日期</th>
+
+            </tr>
+            {foreach name="jobpaper" item="vo"}
+            <tr class="text-center">
+                <td>{$vo.id}</td> 
+                <td>{$vo.name}</td>
+                <td>{$vo.num}</td>
+                <td>{$vo.btime}</td> 
+                <td>{$vo.gtime}</td>
+                <td>{$vo.stime}</td>
+
+            </tr>
+            {/foreach}
+            <tr>
+            <td colspan="12" class="text-right">
+            </td>
+        </tr>
+
+
+        </table>
+     </div>

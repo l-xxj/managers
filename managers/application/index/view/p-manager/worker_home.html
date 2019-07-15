@@ -1,0 +1,140 @@
+
+            <div class="modal fade" id="Add">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+
+                        <!--模拟框头部-->
+                        <div class="modal-header">
+                            <h4 class="modal-title">添加家庭信息</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!--模拟框主体-->
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label>姓名:</label>
+                                    <input type="text" class="form-control" id="name" placeholder="请输入姓名">
+                                </div>
+                                <div class="form-group">
+                                    <label">工号:</label>
+                                    <input type="text" class="form-control" id="num" placeholder="请输入工号">
+                                </div>
+                                <div class="form-group">
+                                    <label">父亲姓名:</label>
+                                    <input type="text" class="form-control" id="fname" placeholder="请输入父亲姓名">
+                                </div>
+                                <div class="form-group">
+                                    <label">父亲工作:</label>
+                                    <input type="text" class="form-control" id="fwork" placeholder="请输入父亲工作">
+                                </div>
+                                 <div class="form-group">
+                                    <label">父亲联系方式:</label>
+                                    <input type="text" class="form-control" id="fphone" placeholder="请输入父亲联系方式">
+                                </div>
+                                <div class="form-group">
+                                    <label">母亲姓名:</label>
+                                    <input type="text" class="form-control" id="mname" placeholder="请输入母亲姓名">
+                                </div>
+                                 <div class="form-group">
+                                    <label">母亲工作:</label>
+                                    <input type="text" class="form-control" id="mwork" placeholder="请输入母亲工作">
+                                </div>
+                                <div class="form-group">
+                                    <label">母亲联系方式:</label>
+                                    <input type="text" class="form-control" id="mphone" placeholder="请输入母亲联系方式">
+                                </div>
+                                 <div class="form-group">
+                                    <label">配偶联系方式:</label>
+                                    <input type="text" class="form-control" id="pphone" placeholder="请输入配偶联系方式">
+                                </div>
+                                 <div class="form-group">
+                                    <label">子女姓名:</label>
+                                    <input type="text" class="form-control" id="cname" placeholder="请输入子女姓名">
+                                </div>
+                                <div class="form-group">
+                                    <label">子女年龄:</label>
+                                    <input type="text" class="form-control" id="cage" placeholder="请输入子女年龄">
+                                     <div class="form-group">
+                                    <label">子女性别:</label>
+                                    <input type="text" class="form-control" id="csex" placeholder="请输入子女性别">
+                                </div>
+                                 <div class="form-group">
+                                    <label">子女工作:</label>
+                                    <input type="text" class="form-control" id="cwork" placeholder="请输入子女工作">
+                                </div>
+                                <div class="form-group">
+                                    <label">子女联系方式:</label>
+                                    <input type="text" class="form-control" id="cphone" placeholder="请输入子女联系方式">
+                                </div>
+                                 <div class="form-group">
+                                    <label">紧急联系人姓名:</label>
+                                    <input type="text" class="form-control" id="sname" placeholder="请输入紧急联系人姓名">
+                                </div>
+                                 <div class="form-group">
+                                    <label">紧急联系人联系方式:</label>
+                                    <input type="text" class="form-control" id="sphone" placeholder="请输入紧急联系人联系方式">
+                                </div>
+                            </form>
+                        </div>
+
+                        <!--模拟框底部-->
+                        <div class="modal-footer"> 
+                            <button type="button" class="btn btn-primary" onclick="AddInfo()">添加</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+     </div>
+
+    <script type='text/javascript'>
+
+        // BootStrap日期插件
+        $(".form_datetime").datetimepicker({
+        format: 'yyyy-mm-dd', // 显示格式
+        todayHighlight: true, // 今天高亮,默认为false
+        minView: "month", // 设置只显示到月份
+        startView:2, // 选择器打开时显示的视图,2为月份视图
+        forceParse: false, //强制解析
+        showMeridian: true, //为日视图和小时视图启用子午线视图
+        autoclose: true // 选择后自动关闭,默认为false
+        });
+
+        // 请求Ajax添加数据,Jquery方式
+        function AddInfo()
+        {
+            // 可以使用数组传参,.push方法
+             var name = $('#name').val();
+             var num = $('#num').val();
+             var fname = $('#fname').val();
+             var fwork = $('#fwork').val();
+             var fphone = $('#fphone').val();
+             var mname = $('#mname').val();
+             var mwork = $('#mwork').val();
+             var mphone = $('#mphone').val();
+             var pphone = $('#pphone').val();
+             var cname = $('#cname').val();
+             var cage = $('#cage').val();
+             var csex = $('#csex').val();
+             var cwork = $('#cwork').val();
+             var cphone = $('#cphone').val();
+             var sname = $('#sname').val();
+             var sphone = $('#sphone').val();
+
+             $.ajax({
+                type: "POST",
+                data:{'name':name,'num':num,'fname':fname,'fwork':fwork,'fphone':fphone,'mname':mname,'mwork':mwork,'mphone':mphone,'pphone':pphone,'cname':cname,'cage':cage,'csex':csex,'cwork':cwork,'cphone':cphone,'sname':sname,'sphone':sphone},
+                url:"{:url('Index/MyAjax/woker_home')}",
+                success:function(data){
+                    alert(data);
+                    if(data=='添加成功')
+                    // 重定向刷新页面
+                    location.reload();
+                }
+             });
+        }
+
+    </script>

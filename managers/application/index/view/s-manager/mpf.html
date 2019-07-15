@@ -1,0 +1,32 @@
+<div class="container" id="box">
+       <div class="container" style="margin-top: 20px; margin-bottom: 30px;">
+        <h4>公积金信息</h4>
+       </div>
+
+        <table class="table table-bordered table-hover">
+            <caption class="text-center">公积金信息表</caption>
+            <tr class="text-danger">
+                <th class="text-center">序号</th>
+                <th class="text-center">姓名</th>
+                <th class="text-center">工号</th>
+                <th class="text-center">购买时间</th>
+                <th class="text-center">停买时间</th>
+
+            </tr>
+            {foreach name="mpf" item="vo"}
+            <tr class="text-center">
+                <td>{$vo.id}</td> 
+                <td>{$vo.name}</td>
+                <td>{$vo.num}</td>
+                <td>{$vo.buy}</td> 
+                <td>{$vo.stop}</td>
+
+            </tr>
+            {/foreach}
+            <tr>
+            <td colspan="12" class="text-right">
+            </td>
+        </tr>
+
+        </table>
+     </div>

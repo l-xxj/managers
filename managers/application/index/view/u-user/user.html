@@ -1,0 +1,94 @@
+<div class="container" id="box">
+       <div class="container" style="margin-top: 20px; margin-bottom: 30px;">
+        <h4 class="text-center">员工信息表</h4>
+       </div class="container" style="margin-top: 20px; margin-bottom: 30px;" >
+	   <div id="myButtons1" class="bs-example text-right" style="margin-top: 20px; margin-bottom: 10px;">
+		   <button type="button" class="btn btn-primary btn-sm ">编辑</button>
+		</div>
+	 
+        <table class=" table-bordered table-hover" width="100%">
+         <caption class="text-center">员工个人信息</caption>
+		 <tr height="50px">
+			 <th width="10%">姓名</th> <td width="20%"> 
+			 <th width="10%">性别</th> <td width="20%"></td>
+			 <th width="10%">民族</th> <td width="20%"></td>
+			 <td colspan="2" rowspan="3" height="150px">图片</td>
+		 </tr>
+		 
+		  {foreach name="user" item="vo"}
+		 <tr class="text-center">
+		     <td>{$vo.id}</td> 
+		     <td>{$vo.name}</td>
+		     
+		 
+		 </tr>
+		 {/foreach}
+		 
+		 <tr height="50px">
+		 	 <th>籍贯</th> <td></td>
+		 	 <th>工号</th> <td></td>
+		 	 <th>出生年月</th> <td></td>
+		 	 
+		 </tr>
+		 <tr height="50px">
+		 	 <th>身份证号码</th> <td></td>
+		 	 <th>婚否</th> <td></td>
+		 	 <th>政治面貌</th> <td></td>
+		 </tr>
+		 <tr height="50px">
+		 	 <th>户口性质</th> <td></td>
+		 	 <th>所在食堂</th> <td></td>
+		 	 <th >部门</th> <td colspan="2"></td>
+		 </tr>
+		 <tr height="50px">
+		 	 <th>职务</th> <td></td>
+		 	 <th>最高学历</th> <td></td>
+		 	 <th >毕业院校</th> <td colspan="2"></td>
+		 </tr>
+		 <tr height="50px">
+		 	 <th>联系电话</th> <td></td>
+		 	 <th>邮箱</th> <td></td>
+		 	 <th >户口所在地</th> <td colspan="2"></td>
+		 </tr>
+		 <tr height="50px">
+		 	 <th>现居地址</th> <td></td>
+		 	 <th>是否退役</th> <td></td>
+		 	 <th >银行卡号码</th> <td colspan="2"></td>
+		 </tr>
+		 <tr height="50px">
+		 	 <th>现居地址</th> <td></td>
+		 	 <th>是否退役</th> <td></td>
+		 	 <th >银行卡号码</th> <td colspan="2"></td>
+		 </tr>
+		 <tr height="50px">
+		 	 <th>现居地址</th> <td></td>
+		 	 <th>是否退役</th> <td></td>
+		 	 <th >银行卡号码</th> <td colspan="2"></td>
+		 </tr>
+		 <tr height="50px">
+		 	 <th>现居地址</th> <td></td>
+		 	 <th>是否退役</th> <td></td>
+		 	 <th >银行卡号码</th> <td colspan="2"></td>
+		 </tr>
+		 <tr height="50px">
+		 	 <th>现居地址</th> <td></td>
+		 	 <th>是否退役</th> <td></td>
+		 	 <th >银行卡号码</th> <td colspan="2"></td>
+		 </tr>
+		 <tr height="50px">
+		 	 <th>现居地址</th> <td></td>
+		 	 <th>是否退役</th> <td></td>
+		 	 <th >银行卡号码</th> <td colspan="2"></td>
+		 </tr>
+
+        </table>
+
+     </div>
+	 
+	 <script type="text/javascript">
+	$(function () {
+		$("#myButtons1 .btn").click(function(){
+			$(this).button('toggle');
+		});
+	});
+	</script>
